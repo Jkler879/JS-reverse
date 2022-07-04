@@ -148,7 +148,7 @@ function getPwd(e, t, n) {    # 添加函数，重定义名为 getPwd
 
 # 5.调用函数getPwd('123456')调试工具计算表达式得到md5加密数据： e10adc3949ba59abbe56e057f20f883e
 
-# 6.pycharm建立JavaScript File文件，复制上述完整js代码
+# 6.pycharm建立JavaScript File文件，复制上述完整js代码，文件命名wechat.js
 
 # 7.使用PyExecJs库执行js代码
 
@@ -168,6 +168,5 @@ ctx = node.compile(open('wechat.js', encoding='utf-8').read())
 funcName = 'getPwd("{0}")'.format('123456')
 pwd = ctx.eval(funcName)
 print(pwd)
-# 结果为 e10adc3949ba59abbe56e057f20f883e
-# 得到加密数据
+# 结果为 e10adc3949ba59abbe56e057f20f883e 得到加密数据
 
