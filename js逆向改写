@@ -10,7 +10,7 @@
 """
 js调试最终代码如下:
 
-var n = {}   # 普通变量定义为空字典
+var n = {}   // 普通变量定义为空字典
 
 function p(e, t) {
     var n = (65535 & e) + (65535 & t);
@@ -140,7 +140,7 @@ function i(e, t) {
     return e = s(r.concat(u(t)), 512 + 8 * t.length),
     c(s(i.concat(e), 640))
 }
-function getPwd(e, t, n) {    # 添加函数，重定义名为 getPwd
+function getPwd(e, t, n) {    // 添加函数，重定义名为 getPwd
     return t ? n ? i(t, e) : o(i(t, e)) : n ? r(e) : o(r(e))
 }
 
