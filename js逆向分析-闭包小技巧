@@ -1,0 +1,25 @@
+# 目标url: 'https://i.fkw.com/'
+
+# 1.输入随机账号名和密码 123@qq.com账号 123456密码 抓包工具发现Form Data提取pwd: e10adc3949ba59abbe56e057f20f883e 根据长度判断为md5加密
+
+# 2. <1> search搜索框输入pwd 找到对应数据包 <2>进入数据包搜索pwd得到疑似js代码，打断点运行,确认是要找的数据
+
+# 3. 进入数据包发现函数形式为js闭包语法 
+
+# 小技巧(需要逆向的js函数出现在一个闭包中，直接将闭包的整个代码块复制即可)
+
+# 4.js调试工具调试代码，直接得出md5加密数据
+
+# 5.pycharm保存js数据，命名fanke.js
+
+# 6.pycharm调用js数据得出结果，代码如下
+
+import execjs
+
+node = execjs.get()
+ctx = node.compile(open('fanke.js', encoding='utf-8').read())
+functionName = "md5('{0}')".format('123456')
+pwd = ctx.eval(functionName)
+print(pwd)
+
+# 7.得出md5加密数据 e10adc3949ba59abbe56e057f20f883e
