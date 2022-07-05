@@ -1,0 +1,55 @@
+# 目标url 'http://login.shikee.com/'
+
+# 1.模拟登录，抓包工具获取password数值 password: 5787e6d0807f6ae002b7d2703f49f94c84bc76fb146c0970e6964821276790cf4ead90e64085d195b9fe10980898b7b02c82e5b14f260937118f8857348623476be1ea239546f3cb67629f43d98267133349d2058de625116b856efef004456600513c664fa08eb056a4fc5f1286f5c5ee7e0e2fdf64f4a644b158f10bfac23c
+
+# 2.search关键字password，找到对应js数据包，分析js数据
+
+# 3. 发现js函数serializeArray();
+
+# js函数 serializeArray();的作用是用来实现序列化，对登录页面的值进行序列化，对应的就是我们表单中的数据：我们输入的账号和密码
+
+# 4.js调试工具分析数据，找出需要添加的对象，js代码如下
+
+function getPwd(p,rsa_n) {
+setMaxDigits(131);
+var rsa_n = 'DC1683EEAA2B709F97743773E18F53E3C9A15D12465CE82227A6E447E6EC590D0B569876BB631B0AB4D67881E7EC874066D6E022E2978B4C6EAA8903EC1774AAE040A3BEAF9C2B48730ADD46BEF5F0C8109DB6FCEFED0F4A84CCD7AFFDB4FB4214DA0D0FF1A8E2831E81FA4D7C2F4346184EEC87CE42230FC320B2B4E392ECDF';
+var key = new RSAKeyPair("10001", '', rsa_n);
+return encryptedString(key, p)
+}
+// rsa_n的数据原数据包没有，抓包工具可使用全局搜索找到对应数据
+
+# 5. 添加上述js对象对应的数据，pycharm保存js数据，命名shike.js
+
+# 6. pycharm模拟登陆获取rsa_n对应加密数据，python代码如下
+
+import requests
+import re
+
+url = 'http://login.shikee.com/getkey?v=ab0bcfb09e9d24562b6059f76aeb96db'  # rsa_n对应url
+
+headers = {
+    'User_Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36',
+    'referer': 'http://login.shikee.com/',
+    'cookie': 'ci_session=a%3A5%3A%7Bs%3A10%3A%22session_id%22%3Bs%3A32%3A%22cc6d42e34b30124153eaa877f48ecbd6%22%3Bs%3A10%3A%22ip_address%22%3Bs%3A14%3A%22218.23.250.223%22%3Bs%3A10%3A%22user_agent%22%3Bs%3A111%3A%22Mozilla%2F5.0+%28Windows+NT+10.0%3B+Win64%3B+x64%29+AppleWebKit%2F537.36+%28KHTML%2C+like+Gecko%29+Chrome%2F103.0.0.0+Safari%2F537.36%22%3Bs%3A13%3A%22last_activity%22%3Bi%3A1657007559%3Bs%3A9%3A%22user_data%22%3Bs%3A0%3A%22%22%3B%7D213775f08aca45776e5ebb68ea9c5b7d; Hm_lvt_f5b004b0742ab157215b881269b4a6fa=1657007560; Hm_lpvt_f5b004b0742ab157215b881269b4a6fa=1657007560; shikeeName=',
+}
+
+page_text = requests.get(url, headers=headers).text
+ex = 'var rsa_n = "(.*?)";'  # 正则对数据进行清洗
+rsa_n = re.findall(ex, page_text)[0]
+print(rsa_n)
+
+# 7. 密码加密逆向，代码如下
+
+import execjs
+
+node = execjs.get()
+pwd = '123456'
+file = 'shike.js'
+ctx = node.compile(open(file, encoding='utf-8').read())
+funcName = 'getPwd("{0}", "{1}")'.format(pwd, rsa_n)
+passwd = ctx.eval(funcName)
+print(passwd)
+
+# 8.得出rsa加密数据
+
+# 5787e6d0807f6ae002b7d2703f49f94c84bc76fb146c0970e6964821276790cf4ead90e64085d195b9fe10980898b7b02c82e5b14f260937118f8857348623476be1ea239546f3cb67629f43d98267133349d2058de625116b856efef004456600513c664fa08eb056a4fc5f1286f5c5ee7e0e2fdf64f4a644b158f10bfac23c
