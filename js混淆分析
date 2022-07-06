@@ -1,0 +1,65 @@
+# 目标url 'https://passport.kongzhong.com/'
+
+# 1.模拟登陆，抓包工具抓取ajaxlogin登陆数据，获得加密密码值 password: 31ff7d22db1a0461b930
+
+# 2.search关键字password，发现混淆代码}('d 1x={\'1y\':\'1f-1c-1w\',\'1d\':\'1u://1v.1f.1z\',\'c\':\'\',\'k\':\'\',\'h\':e,\'p\':e,\'K\':0,\'Z\':z,\'l\':z,\'1e\':n(){6.h=e;6.p=e;6.K=0;6.Z=M;},\'W\':n(s){6.1e();6.p=s;d 7="1a=j";9(6.c!=e&&C.E(6.c)!=""){7+="&c="+x(6.c)};9(6.k!=e&&C.E(6.k)!=""){7+="&k="+x(6.k)};9(6.l){7+="&l=1"};6.A(7)},\'A\':n(7){9(6.Z==z){N z};9(6.h!=e&&6.h["1b"]=="1"){d g={};g["o"]=6.h["o"];g["c"]=6.h["c"];g["17"]=M;g["F"]=6.h["F"];6.p(g);N z};d 12=6.1d+"/1D";C.1E({1C:z,12:12,D:\'1A\',1B:\'1a\',1a:\'j\',g:7,1o:"j",1n:1m,1r:n(1q){},1p:n(1s){}})},\'1F\':n(u){6.h=u;6.K=y.X(Y y());9(6.p!=e){d g={};9(u["1b"]=="0"){g["c"]=u["c"];g["17"]=z;g["1O"]=u["1N"];9(u["T"]!=e&&u["T"]=="1"){g["T"]=M}m{g["T"]=z}}m 9(u["1b"]=="1"){g["o"]=u["o"];g["c"]=u["c"];g["17"]=M};g["F"]=6.h["F"];6.p(g)};6.Z=M},\'1c\':n(o,r,w,t,s){d I=y.X(Y y())-6.K;9((I/14)>=13){6.h=e};9(6.h==e||6.h==""){6.W(n(g){6.p=s;d 7="";7+="&D=1";9(6.c!=e&&C.E(6.c)!=""){7+="&c="+x(6.c)};7+="&H="+o;7+="&V="+6.18(r,g["F"]);7+="&t="+t;9(w){7+="&q=1"}m{7+="&q=0"};9(6.k!=e&&C.E(6.k)!=""){7+="&k="+x(6.k)};9(6.l){7+="&l=1"};6.A(7)})}m{6.p=s;d 7="";7+="&D=1";9(6.c!=e&&C.E(6.c)!=""){7+="&c="+x(6.c)};7+="&H="+o;7+="&V="+6.18(r,6.h["F"]);7+="&t="+t;9(w){7+="&q=1"}m{7+="&q=0"};9(6.k!=e&&C.E(6.k)!=""){7+="&k="+x(6.k)};9(6.l){7+="&l=1"};6.A(7)}},\'1L\':n(o,Q,w,t,s){d I=y.X(Y y())-6.K;9((I/14)>=13){6.h=e};9(6.h==e||6.h==""){6.W(n(){6.p=s;d 7="";7+="&D=2";7+="&c="+6.c;7+="&H="+o;7+="&t="+t;7+="&Q="+Q;9(w){7+="&q=1"}m{7+="&q=0"};9(6.k!=e){7+="&k="+x(6.k)};9(6.l){7+="&l=1"};6.A(7)})}m{6.p=s;d 7="";7+="&D=2";7+="&c="+6.c;7+="&H="+o;7+="&t="+t;7+="&Q="+Q;9(w){7+="&q=1"}m{7+="&q=0"};9(6.k!=e){7+="&k="+x(6.k)};9(6.l){7+="&l=1"};6.A(7)}},\'1P\':n(o,r,w,s){d I=y.X(Y y())-6.K;9((I/14)>=13){6.h=e};9(6.h==e||6.h==""){6.W(n(){6.p=s;d 7="";7+="&D=1l";7+="&c="+6.c;7+="&H="+o;7+="&V="+r;9(w){7+="&q=1"}m{7+="&q=0"};9(6.l){7+="&l=1"};6.A(7)})}m{6.p=s;d 7="";7+="&D=1l";7+="&c="+6.c;7+="&H="+o;7+="&V="+r;9(w){7+="&q=1"}m{7+="&q=0"};9(6.l){7+="&l=1"};6.A(7)}},\'18\':n(15,r){9(r==e||r.v<=0){N e};d f="";1g(d i=0;i<r.v;i++){f+=r.1h(i).O()};d J=G.1k(f.v/5);d S=11(f.L(J)+f.L(J*2)+f.L(J*3)+f.L(J*4)+f.L(J*5));d 19=G.1Q(r.v/2);d U=G.1M(2,1I)-1;9(S<2){N e};d B=G.1K(G.1J()*1G)%1H;f+=B;1j(f.v>10){d a=f.1i(0,1);d b=f.1i(10,f.v);9(b.v>10){f=b}m{f=(11(a)+11(b)).O()}};f=(S*f+19)%U;d P="";d R="";1g(d i=0;i<15.v;i++){P=11(15.1h(i)^G.1k((f/U)*1t));9(P<16){R+="0"+P.O(16)}m R+=P.O(16);f=(S*f+19)%U};B=B.O(16);1j(B.v<8)B="0"+B;R+=B;N R}};', 62, 115, '||||||this|param||if|||service|var|null|prand|data|j_data|||targetService|renew|else|function|user|f_call_back|toSave|pwd|call_back|vcode|vData|length|to_save|decodeURIComponent|Date|false|exec_login|salt|jQuery|type|trim|dc|Math|username|tempTime|sPos|timestamp|charAt|true|return|toString|enc_chr|smscode|enc_str|mult|requirevcode|modu|password|check|parse|new|completed||parseInt|url|180|1000|str||logged|encrypt|incr|jsonp|state|login|loginServer|init|kongzhong|for|charCodeAt|substring|while|floor|101|5000|timeout|jsonpCallback|error|json|success|xhr|255|http|sso|agent|KZLoginHandler|id|com|post|dataType|async|ajaxLogin|ajax|jsonpCallbackKongZ|1000000000|100000000|31|random|round|login_sms|pow|kzmsg|errors|login_reg|ceil'.split('|'), 0, {}))
+
+# 3.判断为js混淆后的代码，浏览器(chrome)自带反混淆工具获取新数据包 VM79188
+
+# js混淆：将js核心代码进行变相的加密
+# 处理方法：浏览器自带反混淆工具，VMxx就是反混淆后的代码
+
+# 4.进入VM数据包，搜索关键字password，给疑似加密代码打上断点，再次模拟登陆判断具体为哪一行代码
+
+# 5. 确定数据： param += "&password=" + this.encrypt(pwd, data["dc"]);
+
+# 6.分析数据，发现data["dc"] 无法在源代码中搜索到data和dc数据，抓包工具全局搜索，发现dc数据，先调试js代码，后通过pycharm模拟登陆获取dc值
+
+# 7.js代码调试，代码如下
+
+function getPwd(p,dc) {
+    return KZLoginHandler.encrypt(p,dc);
+}
+
+# 8.添加encrypt值对应代码，pycharm存储js文件，命名kongzhong.js
+
+# 9.pycharm模拟登陆获取dc，代码如下
+
+import requests
+import json
+import re
+
+url = 'https://sso.kongzhong.com/ajaxLogin?j=j&jsonp=j&service=https://passport.kongzhong.com/&_=1657088664489'
+
+headers = {
+    'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36',
+    'referer': 'https://passport.kongzhong.com/',
+    'cookie': 'KZLBS=fce67f196d1fcd79; Hm_lvt_1287c2225a527abe3386233dd9316f99=1657086413; SSO-KGZLT=ac2cff1c-577d-434e-9129-cb6adbd40230; SSO-KGZIT=96dea0ea-e023-4627-9299-9343b40c0742; SSO-KGZQRT=D6E00F8785983BD142C83AEB39683EA0; Hm_lpvt_1287c2225a527abe3386233dd9316f99=1657088664',
+
+}
+
+data = requests.get(url, headers=headers).text
+ex = 'KZLoginHandler.jsonpCallbackKongZ\((.*)\)' # 正则清洗数据
+dc = re.findall(ex, data)[0]
+dc = json.loads(dc)['dc']
+print(dc)
+# 得到dc值 F4FE2D515936CB16E752EFC0CEC8EE80
+
+# 10.密码加密逆向，代码如下
+
+import execjs
+
+# 1.实例化一个node对象 
+node = execjs.get()
+
+pwd = '123456'
+file = 'kongzhong.js'
+
+# 2.源文件编译
+ctx = node.compile(open(file, encoding='utf-8').read())
+
+# 3.执行js函数
+funcName = 'getPwd("{0}","{1}")'.format(pwd, dc)
+passwd = ctx.eval(funcName)
+print(passwd)
+# 4.得到加密数据 3117322ce33c0543904a
